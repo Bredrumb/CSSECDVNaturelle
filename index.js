@@ -4,9 +4,10 @@ const path = require('path');
 const dayjs = require('dayjs');
 var relativeTime = require('dayjs/plugin/relativeTime');
 dayjs.extend(relativeTime);
+const config = require('dotenv').config;
 
 const mongoose = require('mongoose');
-const MONGODB_URL = "mongodb+srv://naturellesalon:4XsQADUybHP6qwtt@naturellesalon.daylhxq.mongodb.net/NaturelleSalon?retryWrites=true&w=majority";
+const MONGODB_URL = config().parsed.MONGODB_URL;
 
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
